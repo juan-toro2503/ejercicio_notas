@@ -1,4 +1,4 @@
-let name=document .getElementById("name")
+let name=document.getElementById("name")
 let n1=document.getElementById("n1")
 let n2=document.getElementById("n2")
 let n3=document.getElementById("n3")
@@ -17,13 +17,15 @@ function finalNote(){
   let note2=parseFloat(n2.value).toFixed(2)
    let suma=(note1*percentage1)+(note2*percentage2)
 
-  let restante=(goodNote*0.4)-suma
+  let restante=suma-(goodNote)
+  restante=(restante/4)*10
 
   restante=restante.toFixed(2)
 
   let message=document.getElementById("message")
-  message.innerHTML=restante
-  console.log(restante)
+  message.innerHTML=`Le falta una nota de ${restante*-1} para poder ganar la materia `
+
+  
   
 
 }
@@ -48,18 +50,26 @@ function calculate(){
     let finalNote=(note1*percentage1)+(note2*percentage2)+(note3*percentage3)
     finalNote=finalNote.toFixed(2)
    if(finalNote>4.5){
-    alert(name.value+" obtuvo una nota excelente"+ finalNote)
+    let message=document.getElementById("message")
+    message.innerHTML=name.value+" obtuvo una nota excelente: "+ finalNote
+    
 
    }else if(finalNote>=3.5 && finalNote<=4.5){
+    let message=document.getElementById("message")
+    message.innerHTML=name.value+" obtuvo una nota buena: "+ finalNote
 
-    alert(name.value+" obtuvo una nota buena"+ finalNote)
+    
    }else if(finalNote >=2 && finalNote<3.5 ){
+    let message=document.getElementById("message")
+    message.innerHTML=name.value+" debe recuperar la materia: "+ finalNote
 
-   alert(name.value+" debe recuperar la materia"+ finalNote)
+   
 
    }else if( finalNote<2 ){
+    let message=document.getElementById("message")
+    message.innerHTML=name.value+" perdió la materia: "+ finalNote
 
-    alert(name.value+" perdió la materia"+ finalNote)
+   
 
    }
     
